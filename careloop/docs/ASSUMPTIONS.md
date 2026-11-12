@@ -85,3 +85,4 @@ When deploying CareLoop within an integrated regional health system (such as the
 1. **Retrospective EHR Baseline Audit:** Extract 12 months of historical screening data for FIT, Mammography, and HbA1c to establish empirical values for `baseline_leakage` parameters (`ack_loss_rate`, `referral_loss_rate`, `scheduling_no_show_rate`).
 2. **Clinical Advisory Board Review:** Convene oncology and primary care clinical leads to approve SLA timeline thresholds (`colonoscopy_target_days`, `recall_target_days`) and evidence criteria.
 3. **YAML Configuration Update:** Update values in `config/assumptions.yaml` and flip parameter status from `PLACEHOLDER` to `VERIFIED` with formal publication and institutional citations.
+

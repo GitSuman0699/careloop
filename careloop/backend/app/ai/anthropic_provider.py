@@ -44,3 +44,4 @@ def get_ai_provider() -> AIProvider:
     if key:
         return AnthropicAIProvider(api_key=key)
     return MockAIProvider()
+

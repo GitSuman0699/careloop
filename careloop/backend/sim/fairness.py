@@ -86,3 +86,4 @@ def analyze_fairness_comparison(
         comparison[demo] = group_comparisons
 
     return comparison
+

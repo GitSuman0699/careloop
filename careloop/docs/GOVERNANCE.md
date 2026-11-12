@@ -113,3 +113,4 @@ A key engineering tension exists between privacy regulations mandating the right
   - Payloads store pseudonymized IDs (`patient_uuid`).
   - In the event of a legally sanctioned "Right to Erasure" request, the patient's identity mapping key is permanently shredded.
   - The historical audit ledger and SHA-256 hash chain remain mathematically valid and intact, but all historical events are irreversibly anonymized.
+

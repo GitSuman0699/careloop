@@ -158,3 +158,4 @@ CareLoop models the operational tradeoff between navigator workload and system e
 
 ### Recommendation for Health Authorities:
 To sustain loop closure rates above **85%**, health systems should size care navigator staffing to maintain active caseloads between **60 and 75 cases per navigator FTE**.
+

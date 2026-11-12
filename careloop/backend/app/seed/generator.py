@@ -193,3 +193,4 @@ def seed_all(num_patients: int = 5000, num_live_cases: int = 300):
 
 if __name__ == "__main__":
     seed_all()
+

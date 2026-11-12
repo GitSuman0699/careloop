@@ -122,3 +122,4 @@ def map_consent_to_fhir(consent: Consent) -> Dict[str, Any]:
         "patient": {"reference": f"Patient/{consent.patient_id}"},
         "dateTime": consent.granted_at.isoformat() if consent.granted_at else None,
     }
+

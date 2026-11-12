@@ -63,3 +63,4 @@ def generate_breakeven_capacity_curve() -> List[Dict[str, Any]]:
         {"caseload_capacity": 200, "careloop_90d_rate": 0.612, "alert_fatigue_penalty": 0.29},
     ]
     return points
+

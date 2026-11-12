@@ -22,3 +22,4 @@ class LISAdapter:
             "test_type": "FIT",
             "raw_payload_preview": hl7_payload[:80] if hl7_payload else "",
         }
+

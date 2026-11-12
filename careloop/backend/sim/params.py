@@ -32,3 +32,4 @@ class SimParams:
         # Navigator capacity limits
         self.max_caseload = int(get_assumption_value("sla.max_open_cases_per_navigator") or 120)
         self.disparity_threshold = float(get_assumption_value("fairness.disparity_alert_threshold") or 0.10)
+

@@ -179,3 +179,4 @@ export const QuickTour: React.FC<QuickTourProps> = ({ onSelectRole, currentRole 
     </div>
   );
 };
+

@@ -48,3 +48,4 @@
 | **Mocked Interfaces** | In-memory mock adapters | Certified SMART-on-FHIR and MLLP enterprise connectors |
 | **Simulation Simplification**| Stochastic discrete-event engine | Live observational pilot measuring real clinical throughput |
 | **Arabic Dialects** | Modern Standard Arabic | Localized dialect models with clinical linguistic sign-off |
+

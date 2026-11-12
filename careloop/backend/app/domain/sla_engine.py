@@ -206,3 +206,4 @@ class SLAEngine:
             "unreachable_count": len(unreachable_cases),
             "rejected_count": len(rejected_cases),
         }
+

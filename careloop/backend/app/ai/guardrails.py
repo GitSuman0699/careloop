@@ -77,3 +77,4 @@ class MessageValidator:
             violations.append("Raw numeric laboratory result detected in patient message")
 
         return (len(violations) == 0, violations)
+

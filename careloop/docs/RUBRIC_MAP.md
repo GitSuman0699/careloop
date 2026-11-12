@@ -83,3 +83,4 @@
 - [x] Inbound HL7 v2 ORU^R01 parser and bidirectional FHIR R4 mappings.
 - [x] Detailed 90-day clinical pilot plan with phased milestones.
 - [x] Clean licensing and transparent disclosure of competition terms (6-month ROFR).
+

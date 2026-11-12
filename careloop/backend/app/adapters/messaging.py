@@ -56,3 +56,4 @@ class MessagingGatewayAdapter:
             "status": "DELIVERED",
             "delivered_at": self.clock.now().isoformat(),
         }
+

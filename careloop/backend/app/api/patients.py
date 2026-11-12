@@ -250,3 +250,4 @@ def request_help(
     db.add(esc)
     db.commit()
     return {"status": "help_requested", "message": "Your care navigator has been alerted and will reach out to you."}
+

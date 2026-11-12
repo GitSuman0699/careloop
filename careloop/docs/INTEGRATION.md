@@ -213,3 +213,4 @@ Outbound communication uses RESTful JSON contracts matching standard enterprise 
 1. **In-Flight Encryption:** Mandatory TLS 1.3 encryption across all inbound HL7 MLLP tunnels and outbound HTTPS webhooks.
 2. **SMART-on-FHIR OAuth 2.0:** External EHR access tokens require granular scopes (`patient/DiagnosticReport.read`, `patient/Task.write`).
 3. **Audit Invariance:** Every payload ingested or exported is logged to the SHA-256 hash-chain ledger with inbound source IP, certificate fingerprint, and cryptographic checksum.
+

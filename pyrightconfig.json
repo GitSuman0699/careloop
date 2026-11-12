@@ -1,0 +1,11 @@
+{
+  "include": [
+    "careloop/backend"
+  ],
+  "extraPaths": [
+    "careloop/backend",
+    "careloop/backend/app"
+  ],
+  "venvPath": "careloop/backend",
+  "venv": ".venv"
+}

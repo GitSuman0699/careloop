@@ -1,0 +1,11 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/careloop/backend/.venv/Scripts/python.exe",
+  "python.analysis.extraPaths": [
+    "${workspaceFolder}/careloop/backend",
+    "${workspaceFolder}/careloop/backend/app"
+  ],
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}/careloop/backend",
+    "${workspaceFolder}/careloop/backend/app"
+  ]
+}

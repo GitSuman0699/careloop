@@ -29,3 +29,4 @@ CareLoop deliberately limits AI to non-clinical, non-decision-making, advisory r
 - **Zero Autonomous Clinical Closure:** An AI model cannot close a case or sign off evidence.
 - **Zero Autonomous Diagnostic Disclosure:** AI is blocked from diagnosing or communicating unconfirmed disease entities to patients.
 - **Auditability:** Every runtime AI invocation is logged to the `ai_actions` table with input hash, output text, validator verdict, and fallback status.
+

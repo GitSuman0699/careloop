@@ -122,3 +122,4 @@ All components specified in the Agent Build Plan have been built, integrated, te
 2. **Modelled Rather than Empirical Clinical Outcomes:** Reported gains in 90-day closure (+30.6%) and days saved (38.9d) are derived from Monte Carlo discrete-event simulations based on parameterized assumptions.
 3. **Simulated External Adapters:** LIS, hospital scheduling, and SMS gateways are mocked using high-fidelity interface adapters. Production integration requires HL7 v2 / FHIR endpoints.
 4. **Language Translations:** Arabic templates are synthetically generated and marked `NEEDS_NATIVE_REVIEW` pending review by native Arabic clinical linguists.
+

@@ -37,3 +37,4 @@ def trigger_simulation(
     """Trigger a fresh simulation execution."""
     results = run_simulation(cohort_size=cohort_size, seeds_count=seeds_count)
     return {"status": "completed", "results": results}
+

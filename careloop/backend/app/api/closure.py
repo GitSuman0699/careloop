@@ -81,3 +81,4 @@ def decide_closure_proposal(
         }
     else:
         raise HTTPException(status_code=400, detail="Decision must be 'approved' or 'rejected'")
+

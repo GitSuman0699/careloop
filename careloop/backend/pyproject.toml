@@ -45,3 +45,9 @@ select = ["E", "F", "I", "W"]
 [tool.mypy]
 python_version = "3.11"
 strict = true
+
+[tool.pyright]
+include = ["app", "sim", "tests"]
+extraPaths = [".", "app"]
+venvPath = "."
+venv = ".venv"

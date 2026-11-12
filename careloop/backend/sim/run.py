@@ -116,3 +116,4 @@ if __name__ == "__main__":
     parser.add_argument("--seeds", type=int, default=30)
     args = parser.parse_args()
     run_simulation(cohort_size=args.cohort, seeds_count=args.seeds)
+

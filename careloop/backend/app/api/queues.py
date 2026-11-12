@@ -64,3 +64,4 @@ def get_urgent_queue(db: Session = Depends(get_db), user: User = Depends(get_cur
 def get_unreachable_queue(db: Session = Depends(get_db), user: User = Depends(get_current_user)):
     cases = db.query(Case).filter(Case.current_state == "PATIENT_UNREACHABLE", Case.closed_at.is_(None)).all()
     return _format_cases(cases)
+

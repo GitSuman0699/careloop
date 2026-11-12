@@ -33,3 +33,4 @@ class AIProvider(ABC):
     def classify_delay_reason(self, note: str) -> str:
         """Classify a free-text delay note into a standard taxonomy category."""
         pass
+

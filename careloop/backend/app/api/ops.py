@@ -94,3 +94,4 @@ def get_ownership_gaps(db: Session = Depends(get_db)):
         "longest_unassigned_hours": 4.2,
         "status": "HEALTHY" if unassigned_count < 5 else "ATTENTION_REQUIRED",
     }
+

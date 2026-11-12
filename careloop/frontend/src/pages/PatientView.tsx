@@ -357,3 +357,4 @@ export const PatientView: React.FC = () => {
     </div>
   );
 };
+

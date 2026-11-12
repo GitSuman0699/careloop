@@ -59,3 +59,4 @@
 1. **Cost of Delayed Care:** Treating metastatic colorectal cancer costs 4x to 8x more than early polypectomy and outpatient surveillance.
 2. **Malpractice Avoidance:** Failure to follow up on abnormal screening results is one of the top causes of outpatient medical malpractice settlements.
 3. **Specialist Utilization:** Navigator-assisted booking and automated reminders reduce specialist no-show rates from 12% to under 5.4%, optimizing expensive endoscopy and diagnostic imaging capacity.
+

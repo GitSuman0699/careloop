@@ -78,3 +78,4 @@ Before final submission to the Hack2skill portal, the human developer must compl
 - [ ] **Submit Ahead of Deadline:**
   - Deadline: **Friday 20 November 2026**.
   - Target: Submit on the morning of **19 or 20 November 2026** to allow buffer for network or portal congestion.
+

@@ -149,3 +149,4 @@ class OwnershipEngine:
         )
         self.db.add(event)
         return event
+

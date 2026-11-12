@@ -38,3 +38,4 @@ def get_pathway_detail(pathway_id: str):
         return cfg.model_dump()
     except FileNotFoundError:
         raise HTTPException(status_code=404, detail="Pathway not found")
+

@@ -462,3 +462,4 @@ def get_consult_packet(
     """Generate structured consult packet for receiving clinician."""
     svc = ConsultPacketService(db)
     return svc.generate_packet(case_id=case_id, requesting_user_id=user.id)
+

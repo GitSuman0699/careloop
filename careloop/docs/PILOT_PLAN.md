@@ -80,3 +80,4 @@ In strict adherence to the **Future Health Digital Innovation Challenge 2026 Par
 - **Original Intellectual Property:** All software, domain engines, algorithms, and documentation developed in this repository represent original work authored by the project team.
 - **Permissive Open-Source Licensing:** Core dependencies and libraries adhere strictly to permissive licenses (MIT, Apache-2.0, BSD-3-Clause). No GPL or AGPL libraries are incorporated.
 - **Right of First Refusal (ROFR):** The project team acknowledges and transparently honors the **6-month Right of First Refusal** granted to the challenge organizers (Hack2skill) and supporting health entities (including Department of Health Abu Dhabi, Microsoft, MBZUAI, and Inception) regarding commercial deployment, technology transfer, or strategic intellectual property acquisition post-competition.
+

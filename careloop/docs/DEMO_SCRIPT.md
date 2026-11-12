@@ -59,3 +59,4 @@
 ### [6:30 - 7:00] Simulation Evidence & Conclusion
 - **Action:** Switch to **Evidence View**.
 - **Presenter:** *"We evaluated CareLoop across 300,000 simulated patient pathways in a 30-seed Monte Carlo evaluation: CareLoop improves 90-day closure from 54.8% to 85.4%, reduces time to care from 73 days to 34 days, and completely closes the Arabic language disparity gap. CareLoop is containerized, tested with 118 automated proofs, and ready for clinical pilot. Thank you, and we welcome your questions."*
+

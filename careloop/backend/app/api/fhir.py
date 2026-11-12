@@ -56,3 +56,4 @@ def get_fhir_bundle(
         "total": len(resources),
         "entry": [{"resource": r} for r in resources],
     }
+

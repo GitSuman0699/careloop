@@ -251,3 +251,4 @@ export const NavigatorQueue: React.FC = () => {
     </div>
   );
 };
+
