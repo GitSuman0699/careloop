@@ -65,20 +65,9 @@ class TestCheckPermission:
         assert check_permission("supervisor", "run_simulation") is True
 
     def test_supervisor_can_advance_clock(self):
-        """
-        Supervisor role and advance_clock: documents the actual RBAC value.
-        Per the PERMISSIONS matrix, supervisor.advance_clock is False (only admin).
-        This test asserts the matrix value directly.
-        """
-        # NOTE: The brief says supervisor CAN advance clock, but the RBAC matrix
-        # says False. This test documents the implemented value.
-        # If this fails it means the matrix has been changed to True.
+        """Supervisor role CAN advance clock per Plan Section 10.2."""
         actual = check_permission("supervisor", "advance_clock")
-        # Document current state: supervisor cannot advance clock per RBAC matrix
-        # (only admin can). Update this assertion if the matrix is changed.
-        assert actual is False, (
-            "supervisor.advance_clock changed to True — update RBAC matrix docs"
-        )
+        assert actual is True, "supervisor.advance_clock must be True per plan Table 10.2"
 
     # --- auditor ---
     def test_auditor_cannot_change_case_state(self):

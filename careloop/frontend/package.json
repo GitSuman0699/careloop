@@ -13,17 +13,16 @@
     "react": "^18",
     "react-dom": "^18",
     "react-router-dom": "^6",
-    "recharts": "^2",
-    "i18next": "^23",
-    "react-i18next": "^14"
+    "recharts": "^2.12.0"
   },
   "devDependencies": {
-    "vite": "^5",
-    "@vitejs/plugin-react": "^4",
-    "typescript": "^5",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "tailwindcss": "^4",
-    "@tailwindcss/vite": "^4"
+    "vite": "^5.4.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "typescript": "^5.5.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "tailwindcss": "^3.4.17",
+    "postcss": "^8.5.1",
+    "autoprefixer": "^10.4.20"
   }
 }

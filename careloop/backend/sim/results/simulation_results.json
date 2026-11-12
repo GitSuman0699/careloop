@@ -1,0 +1,309 @@
+{
+  "metadata": {
+    "cohort_size_per_arm": 5000,
+    "replicates": 30,
+    "disclaimer": "MODELLED RESULTS, NOT CLINICAL EVIDENCE. Simulated under explicitly parameterized assumptions."
+  },
+  "headline_metrics": {
+    "closed_90d_pct": {
+      "baseline": {
+        "mean": 0.548,
+        "ci_lower": 0.546,
+        "ci_upper": 0.551
+      },
+      "careloop": {
+        "mean": 0.854,
+        "ci_lower": 0.853,
+        "ci_upper": 0.856
+      },
+      "absolute_improvement": 0.306
+    },
+    "referral_conversion_rate": {
+      "baseline": {
+        "mean": 1.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0
+      },
+      "careloop": {
+        "mean": 1.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0
+      }
+    },
+    "appointment_completion_rate": {
+      "baseline": {
+        "mean": 0.88,
+        "ci_lower": 0.878,
+        "ci_upper": 0.882
+      },
+      "careloop": {
+        "mean": 0.946,
+        "ci_lower": 0.944,
+        "ci_upper": 0.947
+      }
+    },
+    "median_days_to_closure": {
+      "baseline": {
+        "mean": 73.433,
+        "ci_lower": 73.253,
+        "ci_upper": 73.614
+      },
+      "careloop": {
+        "mean": 34.533,
+        "ci_lower": 34.352,
+        "ci_upper": 34.715
+      },
+      "days_saved": 38.9
+    }
+  },
+  "representative_baseline": {
+    "cohort_size": 5000,
+    "closure_rate": 0.5922,
+    "closed_30d_pct": 0.0,
+    "closed_60d_pct": 0.0864,
+    "closed_90d_pct": 0.5406,
+    "unresolved_90d_count": 2297,
+    "referral_conversion_rate": 1.0,
+    "appointment_completion_rate": 0.8784,
+    "median_days_to_notify": 7.0,
+    "median_days_to_closure": 74.0,
+    "iqr_days_to_closure": {
+      "q25": 66.0,
+      "q75": 82.0,
+      "iqr": 16.0
+    },
+    "teachback_pass_rate": 0.2664
+  },
+  "representative_careloop": {
+    "cohort_size": 5000,
+    "closure_rate": 0.8516,
+    "closed_30d_pct": 0.2028,
+    "closed_60d_pct": 0.8516,
+    "closed_90d_pct": 0.8516,
+    "unresolved_90d_count": 742,
+    "referral_conversion_rate": 1.0,
+    "appointment_completion_rate": 0.9474,
+    "median_days_to_notify": 2.0,
+    "median_days_to_closure": 35.0,
+    "iqr_days_to_closure": {
+      "q25": 31.0,
+      "q75": 39.0,
+      "iqr": 8.0
+    },
+    "teachback_pass_rate": 0.7046
+  },
+  "fairness_demographic_cuts": {
+    "language": [
+      {
+        "group": "ar",
+        "baseline_rate": 0.5059,
+        "careloop_rate": 0.8517,
+        "improvement": 0.3458,
+        "baseline_gap": 0.0584,
+        "careloop_gap": 0.0295
+      },
+      {
+        "group": "en",
+        "baseline_rate": 0.5643,
+        "careloop_rate": 0.853,
+        "improvement": 0.2887,
+        "baseline_gap": 0.0,
+        "careloop_gap": 0.0282
+      },
+      {
+        "group": "other",
+        "baseline_rate": 0.5479,
+        "careloop_rate": 0.8812,
+        "improvement": 0.3333,
+        "baseline_gap": 0.0164,
+        "careloop_gap": 0.0
+      },
+      {
+        "group": "ur",
+        "baseline_rate": 0.5132,
+        "careloop_rate": 0.8276,
+        "improvement": 0.3144,
+        "baseline_gap": 0.0511,
+        "careloop_gap": 0.0536
+      }
+    ],
+    "age_band": [
+      {
+        "group": "45-54",
+        "baseline_rate": 0.5378,
+        "careloop_rate": 0.8589,
+        "improvement": 0.3211,
+        "baseline_gap": 0.0132,
+        "careloop_gap": 0.0
+      },
+      {
+        "group": "55-64",
+        "baseline_rate": 0.5368,
+        "careloop_rate": 0.8543,
+        "improvement": 0.3175,
+        "baseline_gap": 0.0142,
+        "careloop_gap": 0.0046
+      },
+      {
+        "group": "65-74",
+        "baseline_rate": 0.551,
+        "careloop_rate": 0.84,
+        "improvement": 0.289,
+        "baseline_gap": 0.0,
+        "careloop_gap": 0.0189
+      },
+      {
+        "group": "75+",
+        "baseline_rate": 0.5373,
+        "careloop_rate": 0.8506,
+        "improvement": 0.3133,
+        "baseline_gap": 0.0137,
+        "careloop_gap": 0.0083
+      }
+    ],
+    "sex": [
+      {
+        "group": "F",
+        "baseline_rate": 0.5378,
+        "careloop_rate": 0.853,
+        "improvement": 0.3152,
+        "baseline_gap": 0.0056,
+        "careloop_gap": 0.0
+      },
+      {
+        "group": "M",
+        "baseline_rate": 0.5434,
+        "careloop_rate": 0.8502,
+        "improvement": 0.3068,
+        "baseline_gap": 0.0,
+        "careloop_gap": 0.0028
+      }
+    ],
+    "nationality_group": [
+      {
+        "group": "Group_A",
+        "baseline_rate": 0.5314,
+        "careloop_rate": 0.8573,
+        "improvement": 0.3259,
+        "baseline_gap": 0.02,
+        "careloop_gap": 0.0
+      },
+      {
+        "group": "Group_B",
+        "baseline_rate": 0.5514,
+        "careloop_rate": 0.8478,
+        "improvement": 0.2964,
+        "baseline_gap": 0.0,
+        "careloop_gap": 0.0095
+      },
+      {
+        "group": "Group_C",
+        "baseline_rate": 0.5396,
+        "careloop_rate": 0.8495,
+        "improvement": 0.3099,
+        "baseline_gap": 0.0118,
+        "careloop_gap": 0.0078
+      }
+    ],
+    "care_setting": [
+      {
+        "group": "primary_centre",
+        "baseline_rate": 0.5556,
+        "careloop_rate": 0.8665,
+        "improvement": 0.3109,
+        "baseline_gap": 0.0,
+        "careloop_gap": 0.0
+      },
+      {
+        "group": "regional_hospital",
+        "baseline_rate": 0.5352,
+        "careloop_rate": 0.8426,
+        "improvement": 0.3074,
+        "baseline_gap": 0.0204,
+        "careloop_gap": 0.0239
+      },
+      {
+        "group": "urban_clinic",
+        "baseline_rate": 0.5304,
+        "careloop_rate": 0.8451,
+        "improvement": 0.3147,
+        "baseline_gap": 0.0252,
+        "careloop_gap": 0.0214
+      }
+    ]
+  },
+  "tornado_sensitivity": [
+    {
+      "parameter": "Navigator reminder & rescheduling efficacy",
+      "key": "intervention_effects.navigator_reduces_no_show",
+      "low_delta": 0.221,
+      "high_delta": 0.344,
+      "swing": 0.123
+    },
+    {
+      "parameter": "Multilingual acknowledgement gain",
+      "key": "intervention_effects.multilingual_increases_acknowledgement",
+      "low_delta": 0.245,
+      "high_delta": 0.328,
+      "swing": 0.083
+    },
+    {
+      "parameter": "SLA automated escalation recovery",
+      "key": "intervention_effects.auto_escalation_reduces_delay",
+      "low_delta": 0.252,
+      "high_delta": 0.316,
+      "swing": 0.064
+    },
+    {
+      "parameter": "Baseline appointment no-show rate",
+      "key": "baseline_leakage.appointment_no_show",
+      "low_delta": 0.261,
+      "high_delta": 0.312,
+      "swing": 0.051
+    },
+    {
+      "parameter": "Navigator max caseload capacity",
+      "key": "sla.max_open_cases_per_navigator",
+      "low_delta": 0.268,
+      "high_delta": 0.301,
+      "swing": 0.033
+    }
+  ],
+  "capacity_breakeven_curve": [
+    {
+      "caseload_capacity": 40,
+      "careloop_90d_rate": 0.884,
+      "alert_fatigue_penalty": 0.01
+    },
+    {
+      "caseload_capacity": 60,
+      "careloop_90d_rate": 0.879,
+      "alert_fatigue_penalty": 0.02
+    },
+    {
+      "caseload_capacity": 80,
+      "careloop_90d_rate": 0.865,
+      "alert_fatigue_penalty": 0.03
+    },
+    {
+      "caseload_capacity": 100,
+      "careloop_90d_rate": 0.842,
+      "alert_fatigue_penalty": 0.06
+    },
+    {
+      "caseload_capacity": 120,
+      "careloop_90d_rate": 0.812,
+      "alert_fatigue_penalty": 0.09
+    },
+    {
+      "caseload_capacity": 150,
+      "careloop_90d_rate": 0.735,
+      "alert_fatigue_penalty": 0.17
+    },
+    {
+      "caseload_capacity": 200,
+      "careloop_90d_rate": 0.612,
+      "alert_fatigue_penalty": 0.29
+    }
+  ]
+}

@@ -14,9 +14,11 @@ RUN npx vite build
 FROM python:3.11-slim AS runtime
 WORKDIR /app
 
-# Install backend
+# Copy backend and config
 COPY backend/pyproject.toml ./
 COPY backend/ ./
+COPY config/ /config/
+COPY config/ ./config/
 RUN pip install --no-cache-dir .
 
 # Copy built frontend into static/

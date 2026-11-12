@@ -8,6 +8,7 @@ from datetime import date, datetime
 import pytest
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session, sessionmaker
+from sqlalchemy.pool import StaticPool
 
 # Ensure CLOCK_MODE is simulated for all tests and no DB file is used
 os.environ.setdefault("CLOCK_MODE", "simulated")
@@ -28,6 +29,7 @@ def db_session():
     engine = create_engine(
         "sqlite:///:memory:",
         connect_args={"check_same_thread": False},
+        poolclass=StaticPool,
     )
     Base.metadata.create_all(engine)
     SessionFactory = sessionmaker(bind=engine, autocommit=False, autoflush=False)

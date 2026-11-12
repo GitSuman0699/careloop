@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import functools
+import os
 from pathlib import Path
 from typing import Any
 
@@ -10,9 +11,22 @@ import yaml
 
 
 def get_config_dir() -> Path:
-    """Return the ``config/`` directory (project root)."""
-    # backend/app/core/config.py → go up 4 levels to reach project root
-    return Path(__file__).resolve().parents[3] / "config"
+    """Return the ``config/`` directory (project root or Docker container)."""
+    env_dir = os.environ.get("CARELOOP_CONFIG_DIR")
+    if env_dir and Path(env_dir).exists():
+        return Path(env_dir)
+
+    candidates = [
+        Path(__file__).resolve().parents[3] / "config",
+        Path("/config"),
+        Path("/app/config"),
+        Path("config"),
+        Path("../config"),
+    ]
+    for c in candidates:
+        if c.exists() and (c / "assumptions.yaml").exists():
+            return c
+    return candidates[0]
 
 
 @functools.lru_cache(maxsize=1)

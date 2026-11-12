@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import os
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Protocol, runtime_checkable
 
 
@@ -20,7 +20,7 @@ class RealClock:
     """Clock backed by the system wall clock (UTC)."""
 
     def now(self) -> datetime:
-        return datetime.utcnow()
+        return datetime.now(timezone.utc).replace(tzinfo=None)
 
     def advance(self, *, days: int = 0, hours: int = 0, minutes: int = 0) -> datetime:
         raise NotImplementedError("Cannot advance real clock")

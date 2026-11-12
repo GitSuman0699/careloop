@@ -71,7 +71,7 @@ PERMISSIONS: dict[tuple[str, str], bool] = {
     ("supervisor", "change_case_state"): True,
     ("supervisor", "approve_closure"): True,
     ("supervisor", "view_clinical_detail"): True,
-    ("supervisor", "advance_clock"): False,
+    ("supervisor", "advance_clock"): True,
     ("supervisor", "run_simulation"): True,
     ("supervisor", "read_audit_log"): True,
     # auditor

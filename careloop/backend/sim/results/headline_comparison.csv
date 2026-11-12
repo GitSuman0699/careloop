@@ -1,0 +1,5 @@
+Metric,Baseline (Mean [95% CI]),CareLoop (Mean [95% CI]),Difference
+closed_90d_pct,0.548 [0.546 - 0.551],0.854 [0.853 - 0.856],0.306
+referral_conversion_rate,1.0 [1.0 - 1.0],1.0 [1.0 - 1.0],0.0
+appointment_completion_rate,0.88 [0.878 - 0.882],0.946 [0.944 - 0.947],0.066
+median_days_to_closure,73.433 [73.253 - 73.614],34.533 [34.352 - 34.715],-38.9
