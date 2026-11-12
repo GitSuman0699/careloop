@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from typing import Any, Dict, List
-from app.db.models import Appointment, Case, CaseEvent, Consent, Message, Patient, Referral
+from app.db.models import Appointment, Case, Consent, Message
 
 
 def map_case_to_service_request(case: Case) -> Dict[str, Any]:

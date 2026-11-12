@@ -2,6 +2,14 @@
   "include": [
     "careloop/backend"
   ],
+  "executionEnvironments": [
+    {
+      "root": "careloop/backend",
+      "extraPaths": [
+        "careloop/backend"
+      ]
+    }
+  ],
   "extraPaths": [
     "careloop/backend",
     "careloop/backend/app"

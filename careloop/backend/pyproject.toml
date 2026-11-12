@@ -48,6 +48,9 @@ strict = true
 
 [tool.pyright]
 include = ["app", "sim", "tests"]
+executionEnvironments = [
+  { root = ".", extraPaths = ["."] }
+]
 extraPaths = [".", "app"]
 venvPath = "."
 venv = ".venv"

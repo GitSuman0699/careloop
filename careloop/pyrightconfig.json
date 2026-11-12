@@ -2,6 +2,14 @@
   "include": [
     "backend"
   ],
+  "executionEnvironments": [
+    {
+      "root": "backend",
+      "extraPaths": [
+        "backend"
+      ]
+    }
+  ],
   "extraPaths": [
     "backend",
     "backend/app",
