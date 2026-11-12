@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  careloop:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      CLOCK_MODE: simulated
+      DATABASE_URL: "sqlite:///./careloop.db"

@@ -1,0 +1,243 @@
+# ============================================================
+# CareLoop — Assumption Register
+# ============================================================
+# Every parameter that drives clinical logic, simulation, or
+# SLA calculation lives here.  ALL values are PLACEHOLDER until
+# validated by a domain expert and the status field is changed
+# to VALIDATED.
+#
+# Structure per parameter:
+#   value:   <number or string>
+#   unit:    <human-readable unit>
+#   source:  <citation / "assumption" / "TBD">
+#   status:  PLACEHOLDER | UNDER_REVIEW | VALIDATED
+#   notes:   <free text>
+# ============================================================
+
+fit:
+  positivity_rate:
+    value: 0.08
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion of FIT tests returning positive"
+  notify_within_days:
+    value: 3
+    unit: days
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Max days from result to patient notification"
+  acknowledge_within_days:
+    value: 7
+    unit: days
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Max days for patient to acknowledge notification"
+  referral_turnaround_days:
+    value: 14
+    unit: days
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Expected days from confirmation to referral sent"
+  appointment_wait_days:
+    value: 30
+    unit: days
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Expected wait from referral accepted to appointment"
+  colonoscopy_completion_rate:
+    value: 0.85
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion of referred patients who attend colonoscopy"
+  adenoma_detection_rate:
+    value: 0.35
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Adenoma detection rate at colonoscopy"
+
+breast:
+  recall_rate:
+    value: 0.04
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion of screening mammograms recalled"
+  biopsy_rate:
+    value: 0.012
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion of screened patients biopsied"
+  notify_within_days:
+    value: 5
+    unit: days
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Max days from recall decision to patient notification"
+
+cardiometabolic:
+  hba1c_threshold_mmol:
+    value: 48
+    unit: mmol/mol
+    source: assumption
+    status: PLACEHOLDER
+    notes: "HbA1c threshold for flagging elevated result"
+  retest_interval_months:
+    value: 3
+    unit: months
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Months between retests for borderline results"
+  lifestyle_referral_rate:
+    value: 0.60
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion of flagged patients referred to lifestyle programme"
+  medication_escalation_rate:
+    value: 0.25
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion requiring medication escalation"
+
+sla:
+  max_open_cases_per_navigator:
+    value: 120
+    unit: cases
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Maximum open cases per navigator before overload alert"
+  escalation_response_hours:
+    value: 4
+    unit: hours
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Target response time for escalated cases"
+
+navigator:
+  avg_contact_attempts:
+    value: 3
+    unit: attempts
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Average number of contact attempts before unreachable"
+  contact_interval_days:
+    value: 2
+    unit: days
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Days between contact attempts"
+
+simulation:
+  population_size:
+    value: 10000
+    unit: patients
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Default synthetic population size"
+  sim_duration_days:
+    value: 365
+    unit: days
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Simulation time horizon"
+  time_step_hours:
+    value: 1
+    unit: hours
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Simulation clock granularity"
+
+baseline_leakage:
+  no_notification:
+    value: 0.05
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion lost due to no notification sent"
+  no_acknowledgement:
+    value: 0.10
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion lost at acknowledgement step"
+  no_confirmation:
+    value: 0.08
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion lost at confirmation step"
+  referral_not_sent:
+    value: 0.03
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion where referral is never sent"
+  referral_rejected:
+    value: 0.02
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion of referrals rejected by receiving clinic"
+  appointment_no_show:
+    value: 0.12
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion of booked appointments not attended"
+  loss_to_follow_up:
+    value: 0.07
+    unit: proportion
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Proportion lost between appointment and closure"
+
+intervention_effects:
+  navigator_reduces_no_show:
+    value: 0.40
+    unit: relative_reduction
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Relative reduction in no-show rate with navigator intervention"
+  sms_reminder_reduces_no_show:
+    value: 0.25
+    unit: relative_reduction
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Relative reduction in no-show from SMS reminders"
+  auto_escalation_reduces_delay:
+    value: 0.30
+    unit: relative_reduction
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Relative reduction in referral delay from auto-escalation"
+  multilingual_increases_acknowledgement:
+    value: 0.15
+    unit: relative_increase
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Relative increase in acknowledgement among non-English speakers"
+  peer_support_reduces_decline:
+    value: 0.20
+    unit: relative_reduction
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Relative reduction in patient decline with peer support"
+  digital_literacy_support_increases_engagement:
+    value: 0.10
+    unit: relative_increase
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Relative increase in engagement from digital literacy support"
+
+fairness:
+  disparity_alert_threshold:
+    value: 0.10
+    unit: absolute_difference
+    source: assumption
+    status: PLACEHOLDER
+    notes: "Maximum acceptable absolute difference in completion rate between demographic groups before alert"

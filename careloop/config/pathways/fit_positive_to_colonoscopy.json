@@ -1,0 +1,219 @@
+{
+  "pathway_id": "fit_positive_to_colonoscopy",
+  "name": "FIT Positive → Colonoscopy",
+  "version": "0.1.0",
+  "description": "End-to-end care pathway from a positive faecal immunochemical test (FIT) result through colonoscopy to closure.",
+
+  "steps": [
+    {
+      "id": "RESULT_ISSUED",
+      "label": "Result issued",
+      "description": "Lab issues positive FIT result into system",
+      "sla_key": null,
+      "auto_transition": true,
+      "next": "PATIENT_NOTIFIED"
+    },
+    {
+      "id": "PATIENT_NOTIFIED",
+      "label": "Patient notified",
+      "description": "Patient receives notification of positive result",
+      "sla_key": "fit.notify_within_days",
+      "auto_transition": false,
+      "next": "PATIENT_ACKNOWLEDGED"
+    },
+    {
+      "id": "PATIENT_ACKNOWLEDGED",
+      "label": "Patient acknowledged",
+      "description": "Patient acknowledges receipt of notification",
+      "sla_key": "fit.acknowledge_within_days",
+      "auto_transition": false,
+      "next": "CONFIRMATION_PENDING"
+    },
+    {
+      "id": "CONFIRMATION_PENDING",
+      "label": "Confirmation pending",
+      "description": "Awaiting confirmation of patient intent to proceed",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "CONFIRMATION_DONE"
+    },
+    {
+      "id": "CONFIRMATION_DONE",
+      "label": "Confirmation done",
+      "description": "Patient confirmed intent to proceed with referral",
+      "sla_key": null,
+      "auto_transition": true,
+      "next": "REFERRAL_SENT"
+    },
+    {
+      "id": "REFERRAL_SENT",
+      "label": "Referral sent",
+      "description": "Referral sent to endoscopy / specialist clinic",
+      "sla_key": "fit.referral_turnaround_days",
+      "auto_transition": false,
+      "next": "REFERRAL_ACCEPTED"
+    },
+    {
+      "id": "REFERRAL_ACCEPTED",
+      "label": "Referral accepted",
+      "description": "Receiving clinic accepts the referral",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "APPOINTMENT_BOOKED"
+    },
+    {
+      "id": "APPOINTMENT_BOOKED",
+      "label": "Appointment booked",
+      "description": "Colonoscopy appointment date confirmed",
+      "sla_key": "fit.appointment_wait_days",
+      "auto_transition": false,
+      "next": "APPOINTMENT_ATTENDED"
+    },
+    {
+      "id": "APPOINTMENT_ATTENDED",
+      "label": "Appointment attended",
+      "description": "Patient attends colonoscopy appointment",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "TREATMENT_OR_SURVEILLANCE"
+    },
+    {
+      "id": "TREATMENT_OR_SURVEILLANCE",
+      "label": "Treatment or surveillance",
+      "description": "Clinical outcome determined: treatment plan or surveillance interval",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "CLOSURE_PROPOSED"
+    },
+    {
+      "id": "CLOSURE_PROPOSED",
+      "label": "Closure proposed",
+      "description": "Navigator proposes case closure",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "CLOSED"
+    },
+    {
+      "id": "CLOSED",
+      "label": "Closed",
+      "description": "Case closed — terminal state",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": null
+    }
+  ],
+
+  "side_states": [
+    {
+      "id": "ESCALATED",
+      "label": "Escalated",
+      "description": "Case escalated to senior navigator or clinician",
+      "can_enter_from": ["PATIENT_NOTIFIED", "PATIENT_ACKNOWLEDGED", "CONFIRMATION_PENDING", "REFERRAL_SENT", "REFERRAL_ACCEPTED", "APPOINTMENT_BOOKED"],
+      "returns_to": "previous"
+    },
+    {
+      "id": "PATIENT_UNREACHABLE",
+      "label": "Patient unreachable",
+      "description": "Patient could not be contacted after max attempts",
+      "can_enter_from": ["PATIENT_NOTIFIED", "PATIENT_ACKNOWLEDGED", "CONFIRMATION_PENDING", "APPOINTMENT_BOOKED"],
+      "returns_to": "ESCALATED"
+    },
+    {
+      "id": "PATIENT_DECLINED",
+      "label": "Patient declined",
+      "description": "Patient explicitly declined to proceed",
+      "can_enter_from": ["PATIENT_ACKNOWLEDGED", "CONFIRMATION_PENDING", "APPOINTMENT_BOOKED"],
+      "returns_to": null
+    },
+    {
+      "id": "TRANSFERRED",
+      "label": "Transferred",
+      "description": "Case transferred to another service or region",
+      "can_enter_from": ["PATIENT_NOTIFIED", "PATIENT_ACKNOWLEDGED", "CONFIRMATION_PENDING", "REFERRAL_SENT", "REFERRAL_ACCEPTED", "APPOINTMENT_BOOKED"],
+      "returns_to": null
+    },
+    {
+      "id": "REFERRAL_REJECTED",
+      "label": "Referral rejected",
+      "description": "Receiving clinic rejected the referral",
+      "can_enter_from": ["REFERRAL_SENT"],
+      "returns_to": "REFERRAL_SENT"
+    }
+  ],
+
+  "urgency_tiers": [
+    {
+      "id": "routine_actionable",
+      "label": "Routine actionable",
+      "description": "Standard positive FIT — no red flags",
+      "sla_multiplier": 1.0
+    },
+    {
+      "id": "priority",
+      "label": "Priority",
+      "description": "Positive FIT with symptoms or family history",
+      "sla_multiplier": 0.5
+    },
+    {
+      "id": "urgent",
+      "label": "Urgent",
+      "description": "Red-flag symptoms accompanying positive FIT",
+      "sla_multiplier": 0.25
+    }
+  ],
+
+  "red_flag_rules": [
+    {
+      "id": "rf_rectal_bleeding",
+      "description": "Active rectal bleeding reported",
+      "upgrades_to": "urgent"
+    },
+    {
+      "id": "rf_weight_loss",
+      "description": "Unexplained weight loss > 5% in 3 months",
+      "upgrades_to": "urgent"
+    },
+    {
+      "id": "rf_iron_deficiency",
+      "description": "Iron-deficiency anaemia confirmed",
+      "upgrades_to": "priority"
+    },
+    {
+      "id": "rf_family_history",
+      "description": "First-degree relative with colorectal cancer",
+      "upgrades_to": "priority"
+    }
+  ],
+
+  "closure": {
+    "requires_human_approval": true,
+    "allowed_types": [
+      "completed_treatment",
+      "entered_surveillance",
+      "patient_declined_documented",
+      "transferred_out",
+      "deceased"
+    ]
+  },
+
+  "escalation_tiers": [
+    {
+      "tier": 1,
+      "role": "senior_navigator",
+      "trigger": "SLA breach or patient unreachable after max attempts",
+      "response_sla_key": "sla.escalation_response_hours"
+    },
+    {
+      "tier": 2,
+      "role": "clinical_lead",
+      "trigger": "Tier 1 unresolved within response SLA or clinical concern",
+      "response_sla_key": "sla.escalation_response_hours"
+    },
+    {
+      "tier": 3,
+      "role": "service_manager",
+      "trigger": "Tier 2 unresolved or systemic issue identified",
+      "response_sla_key": null
+    }
+  ]
+}

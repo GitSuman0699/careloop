@@ -1,0 +1,78 @@
+{
+  "banned_terms": [
+    {
+      "term": "cancer",
+      "context": "Do not use the word 'cancer' in patient-facing messages without clinical confirmation. Use 'further investigation' or 'follow-up' instead.",
+      "severity": "error",
+      "applies_to": ["patient"]
+    },
+    {
+      "term": "tumour",
+      "context": "Avoid in patient-facing messages. Use clinical terminology only in clinician-facing templates.",
+      "severity": "error",
+      "applies_to": ["patient"]
+    },
+    {
+      "term": "tumor",
+      "context": "US spelling variant — same rule as 'tumour'.",
+      "severity": "error",
+      "applies_to": ["patient"]
+    },
+    {
+      "term": "malignant",
+      "context": "Avoid in patient-facing messages before confirmed diagnosis.",
+      "severity": "error",
+      "applies_to": ["patient"]
+    },
+    {
+      "term": "urgent",
+      "context": "Avoid 'urgent' in patient-facing messages to reduce unnecessary anxiety. Use 'priority' or 'timely' instead.",
+      "severity": "warning",
+      "applies_to": ["patient"]
+    },
+    {
+      "term": "emergency",
+      "context": "Do not imply emergency unless directing to emergency services.",
+      "severity": "error",
+      "applies_to": ["patient"]
+    },
+    {
+      "term": "die",
+      "context": "Avoid direct references to death in automated messages.",
+      "severity": "error",
+      "applies_to": ["patient"]
+    },
+    {
+      "term": "death",
+      "context": "Avoid direct references to death in automated messages.",
+      "severity": "error",
+      "applies_to": ["patient"]
+    },
+    {
+      "term": "fatal",
+      "context": "Avoid in patient-facing messages.",
+      "severity": "error",
+      "applies_to": ["patient"]
+    },
+    {
+      "term": "you must",
+      "context": "Avoid directive language. Use 'we recommend' or 'please consider'.",
+      "severity": "warning",
+      "applies_to": ["patient"]
+    }
+  ],
+  "banned_patterns": [
+    {
+      "regex": "\\b[A-Z]{2,}\\b(?!FIT|HbA1c|SLA|ID|SMS|UK|NHS)",
+      "context": "Avoid unexplained uppercase acronyms in patient-facing messages. Expand or explain all acronyms.",
+      "severity": "warning",
+      "applies_to": ["patient"]
+    },
+    {
+      "regex": "\\d{3,}-\\d{3,}-\\d{3,}",
+      "context": "Potential personal identifier pattern — ensure no real patient identifiers appear in templates.",
+      "severity": "error",
+      "applies_to": ["patient", "navigator", "clinician"]
+    }
+  ]
+}

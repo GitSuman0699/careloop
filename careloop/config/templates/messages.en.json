@@ -1,0 +1,99 @@
+{
+  "fit_positive_notification": {
+    "subject": "Important: Your screening test result",
+    "body": "Dear {{patient_name}},\n\nYour recent bowel screening test (FIT) has returned a result that needs follow-up. This does not necessarily mean anything is wrong, but we would like to arrange further investigation.\n\nPlease acknowledge this message so your care navigator can discuss next steps with you.\n\nYour care navigator: {{navigator_name}}\nContact: {{navigator_phone}}\n\nThis is a simulated message for demonstration purposes only.",
+    "required_fields": ["patient_name", "navigator_name", "navigator_phone"],
+    "channels": {
+      "app": {
+        "format": "full"
+      },
+      "sms": {
+        "body": "Important: Your bowel screening result needs follow-up. Please log in to CareLoop or call {{navigator_phone}}. (Simulated)"
+      }
+    }
+  },
+
+  "breast_recall_notification": {
+    "subject": "Important: Breast screening recall",
+    "body": "Dear {{patient_name}},\n\nFollowing your recent mammogram, we would like to invite you back for further assessment. This is a routine part of screening and does not mean there is a problem.\n\nPlease acknowledge this message to confirm receipt.\n\nYour care navigator: {{navigator_name}}\nContact: {{navigator_phone}}\n\nThis is a simulated message for demonstration purposes only.",
+    "required_fields": ["patient_name", "navigator_name", "navigator_phone"],
+    "channels": {
+      "app": {
+        "format": "full"
+      },
+      "sms": {
+        "body": "Important: You have been recalled after your mammogram. Please log in to CareLoop or call {{navigator_phone}}. (Simulated)"
+      }
+    }
+  },
+
+  "hba1c_elevated_notification": {
+    "subject": "Your blood test result — action needed",
+    "body": "Dear {{patient_name}},\n\nYour recent HbA1c blood test showed a level of {{hba1c_value}} {{hba1c_unit}}, which is above the recommended range. We would like to discuss options with you, which may include lifestyle changes or medication.\n\nPlease acknowledge this message so we can arrange a conversation.\n\nYour care navigator: {{navigator_name}}\nContact: {{navigator_phone}}\n\nThis is a simulated message for demonstration purposes only.",
+    "required_fields": ["patient_name", "hba1c_value", "hba1c_unit", "navigator_name", "navigator_phone"],
+    "channels": {
+      "app": {
+        "format": "full"
+      },
+      "sms": {
+        "body": "Your HbA1c result needs follow-up. Please log in to CareLoop or call {{navigator_phone}}. (Simulated)"
+      }
+    }
+  },
+
+  "appointment_reminder": {
+    "subject": "Reminder: Upcoming appointment",
+    "body": "Dear {{patient_name}},\n\nThis is a reminder that you have an appointment on {{appointment_date}} at {{appointment_time}} at {{clinic_name}}.\n\nIf you need to reschedule, please contact your care navigator: {{navigator_name}} at {{navigator_phone}}.\n\nThis is a simulated message for demonstration purposes only.",
+    "required_fields": ["patient_name", "appointment_date", "appointment_time", "clinic_name", "navigator_name", "navigator_phone"],
+    "channels": {
+      "app": {
+        "format": "full"
+      },
+      "sms": {
+        "body": "Reminder: Appointment on {{appointment_date}} at {{appointment_time}}, {{clinic_name}}. To reschedule call {{navigator_phone}}. (Simulated)"
+      }
+    }
+  },
+
+  "escalation_alert": {
+    "subject": "Case escalated: {{patient_id}}",
+    "body": "Case {{case_id}} for patient {{patient_id}} has been escalated.\n\nReason: {{escalation_reason}}\nCurrent step: {{current_step}}\nPathway: {{pathway_name}}\nEscalation tier: {{escalation_tier}}\n\nPlease review and take action within the SLA window.\n\nThis is a simulated message for demonstration purposes only.",
+    "required_fields": ["case_id", "patient_id", "escalation_reason", "current_step", "pathway_name", "escalation_tier"],
+    "channels": {
+      "app": {
+        "format": "full"
+      },
+      "sms": {
+        "body": "ESCALATION: Case {{case_id}} needs attention. Tier {{escalation_tier}}. Log in to CareLoop. (Simulated)"
+      }
+    }
+  },
+
+  "sla_breach_warning": {
+    "subject": "SLA breach warning: {{case_id}}",
+    "body": "Case {{case_id}} is approaching or has breached its SLA.\n\nStep: {{current_step}}\nSLA deadline: {{sla_deadline}}\nTime remaining: {{time_remaining}}\n\nPlease take immediate action.\n\nThis is a simulated message for demonstration purposes only.",
+    "required_fields": ["case_id", "current_step", "sla_deadline", "time_remaining"],
+    "channels": {
+      "app": {
+        "format": "full"
+      },
+      "sms": {
+        "body": "SLA WARNING: Case {{case_id}} at step {{current_step}} — deadline {{sla_deadline}}. (Simulated)"
+      }
+    }
+  },
+
+  "closure_confirmation": {
+    "subject": "Case closed: {{case_id}}",
+    "body": "Case {{case_id}} for patient {{patient_name}} has been closed.\n\nClosure type: {{closure_type}}\nClosed by: {{closed_by}}\nDate: {{closure_date}}\n\nThis is a simulated message for demonstration purposes only.",
+    "required_fields": ["case_id", "patient_name", "closure_type", "closed_by", "closure_date"],
+    "channels": {
+      "app": {
+        "format": "full"
+      },
+      "sms": {
+        "body": "Case {{case_id}} has been closed ({{closure_type}}). (Simulated)"
+      }
+    }
+  }
+}

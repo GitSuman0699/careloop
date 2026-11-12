@@ -1,0 +1,138 @@
+{
+  "pathway_id": "breast_recall",
+  "name": "Breast Screening Recall",
+  "version": "0.1.0",
+  "description": "Care pathway from mammography recall through assessment to resolution.",
+
+  "steps": [
+    {
+      "id": "RESULT_ISSUED",
+      "label": "Recall decision issued",
+      "sla_key": null,
+      "auto_transition": true,
+      "next": "PATIENT_NOTIFIED"
+    },
+    {
+      "id": "PATIENT_NOTIFIED",
+      "label": "Patient notified of recall",
+      "sla_key": "breast.notify_within_days",
+      "auto_transition": false,
+      "next": "PATIENT_ACKNOWLEDGED"
+    },
+    {
+      "id": "PATIENT_ACKNOWLEDGED",
+      "label": "Patient acknowledged",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "ASSESSMENT_BOOKED"
+    },
+    {
+      "id": "ASSESSMENT_BOOKED",
+      "label": "Assessment appointment booked",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "ASSESSMENT_ATTENDED"
+    },
+    {
+      "id": "ASSESSMENT_ATTENDED",
+      "label": "Assessment attended",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "OUTCOME_DETERMINED"
+    },
+    {
+      "id": "OUTCOME_DETERMINED",
+      "label": "Outcome determined",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "CLOSURE_PROPOSED"
+    },
+    {
+      "id": "CLOSURE_PROPOSED",
+      "label": "Closure proposed",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "CLOSED"
+    },
+    {
+      "id": "CLOSED",
+      "label": "Closed",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": null
+    }
+  ],
+
+  "side_states": [
+    {
+      "id": "ESCALATED",
+      "label": "Escalated",
+      "can_enter_from": ["PATIENT_NOTIFIED", "PATIENT_ACKNOWLEDGED", "ASSESSMENT_BOOKED"],
+      "returns_to": "previous"
+    },
+    {
+      "id": "PATIENT_UNREACHABLE",
+      "label": "Patient unreachable",
+      "can_enter_from": ["PATIENT_NOTIFIED", "PATIENT_ACKNOWLEDGED"],
+      "returns_to": "ESCALATED"
+    },
+    {
+      "id": "PATIENT_DECLINED",
+      "label": "Patient declined",
+      "can_enter_from": ["PATIENT_ACKNOWLEDGED", "ASSESSMENT_BOOKED"],
+      "returns_to": null
+    }
+  ],
+
+  "urgency_tiers": [
+    {
+      "id": "routine_actionable",
+      "label": "Routine recall",
+      "sla_multiplier": 1.0
+    },
+    {
+      "id": "priority",
+      "label": "Priority — symptomatic or high-risk",
+      "sla_multiplier": 0.5
+    },
+    {
+      "id": "urgent",
+      "label": "Urgent — suspicious findings",
+      "sla_multiplier": 0.25
+    }
+  ],
+
+  "red_flag_rules": [
+    {
+      "id": "rf_palpable_mass",
+      "description": "Palpable breast mass reported",
+      "upgrades_to": "urgent"
+    }
+  ],
+
+  "closure": {
+    "requires_human_approval": true,
+    "allowed_types": [
+      "normal_result",
+      "benign_finding",
+      "referred_for_treatment",
+      "patient_declined_documented",
+      "transferred_out"
+    ]
+  },
+
+  "escalation_tiers": [
+    {
+      "tier": 1,
+      "role": "senior_navigator",
+      "trigger": "SLA breach or patient unreachable",
+      "response_sla_key": "sla.escalation_response_hours"
+    },
+    {
+      "tier": 2,
+      "role": "clinical_lead",
+      "trigger": "Tier 1 unresolved",
+      "response_sla_key": "sla.escalation_response_hours"
+    }
+  ]
+}

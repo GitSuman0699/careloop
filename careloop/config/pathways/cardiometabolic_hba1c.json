@@ -1,0 +1,157 @@
+{
+  "pathway_id": "cardiometabolic_hba1c",
+  "name": "Cardiometabolic HbA1c Follow-up",
+  "version": "0.1.0",
+  "description": "Care pathway for elevated HbA1c results through lifestyle intervention or medication escalation to monitoring.",
+
+  "steps": [
+    {
+      "id": "RESULT_ISSUED",
+      "label": "HbA1c result issued",
+      "sla_key": null,
+      "auto_transition": true,
+      "next": "PATIENT_NOTIFIED"
+    },
+    {
+      "id": "PATIENT_NOTIFIED",
+      "label": "Patient notified of elevated result",
+      "sla_key": "breast.notify_within_days",
+      "auto_transition": false,
+      "next": "PATIENT_ACKNOWLEDGED"
+    },
+    {
+      "id": "PATIENT_ACKNOWLEDGED",
+      "label": "Patient acknowledged",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "INTERVENTION_PLANNED"
+    },
+    {
+      "id": "INTERVENTION_PLANNED",
+      "label": "Intervention planned",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "INTERVENTION_ACTIVE"
+    },
+    {
+      "id": "INTERVENTION_ACTIVE",
+      "label": "Intervention active",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "RETEST_DUE"
+    },
+    {
+      "id": "RETEST_DUE",
+      "label": "Retest due",
+      "sla_key": "cardiometabolic.retest_interval_months",
+      "auto_transition": false,
+      "next": "RETEST_COMPLETED"
+    },
+    {
+      "id": "RETEST_COMPLETED",
+      "label": "Retest completed",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "OUTCOME_DETERMINED"
+    },
+    {
+      "id": "OUTCOME_DETERMINED",
+      "label": "Outcome determined",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "CLOSURE_PROPOSED"
+    },
+    {
+      "id": "CLOSURE_PROPOSED",
+      "label": "Closure proposed",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": "CLOSED"
+    },
+    {
+      "id": "CLOSED",
+      "label": "Closed",
+      "sla_key": null,
+      "auto_transition": false,
+      "next": null
+    }
+  ],
+
+  "side_states": [
+    {
+      "id": "ESCALATED",
+      "label": "Escalated",
+      "can_enter_from": ["PATIENT_NOTIFIED", "PATIENT_ACKNOWLEDGED", "INTERVENTION_PLANNED", "RETEST_DUE"],
+      "returns_to": "previous"
+    },
+    {
+      "id": "PATIENT_UNREACHABLE",
+      "label": "Patient unreachable",
+      "can_enter_from": ["PATIENT_NOTIFIED", "PATIENT_ACKNOWLEDGED"],
+      "returns_to": "ESCALATED"
+    },
+    {
+      "id": "PATIENT_DECLINED",
+      "label": "Patient declined",
+      "can_enter_from": ["PATIENT_ACKNOWLEDGED", "INTERVENTION_PLANNED"],
+      "returns_to": null
+    }
+  ],
+
+  "urgency_tiers": [
+    {
+      "id": "routine_actionable",
+      "label": "Routine — borderline HbA1c",
+      "sla_multiplier": 1.0
+    },
+    {
+      "id": "priority",
+      "label": "Priority — significantly elevated HbA1c",
+      "sla_multiplier": 0.5
+    },
+    {
+      "id": "urgent",
+      "label": "Urgent — very high HbA1c with complications",
+      "sla_multiplier": 0.25
+    }
+  ],
+
+  "red_flag_rules": [
+    {
+      "id": "rf_hba1c_critical",
+      "description": "HbA1c > 86 mmol/mol (10%)",
+      "upgrades_to": "urgent"
+    },
+    {
+      "id": "rf_ketones",
+      "description": "Elevated ketones detected",
+      "upgrades_to": "urgent"
+    }
+  ],
+
+  "closure": {
+    "requires_human_approval": true,
+    "allowed_types": [
+      "target_achieved",
+      "stable_on_treatment",
+      "referred_to_specialist",
+      "patient_declined_documented",
+      "transferred_out"
+    ]
+  },
+
+  "escalation_tiers": [
+    {
+      "tier": 1,
+      "role": "senior_navigator",
+      "trigger": "SLA breach or patient unreachable",
+      "response_sla_key": "sla.escalation_response_hours"
+    },
+    {
+      "tier": 2,
+      "role": "clinical_lead",
+      "trigger": "Tier 1 unresolved or clinical concern",
+      "response_sla_key": "sla.escalation_response_hours"
+    }
+  ]
+}

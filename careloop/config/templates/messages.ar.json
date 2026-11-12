@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "language": "ar",
+    "direction": "rtl",
+    "review_status": "NEEDS_NATIVE_REVIEW",
+    "notes": "Machine-translated placeholders — must be reviewed by a native Arabic speaker before any use."
+  },
+
+  "fit_positive_notification": {
+    "review_status": "NEEDS_NATIVE_REVIEW",
+    "subject": "مهم: نتيجة فحص الكشف المبكر",
+    "body": "عزيزي/عزيزتي {{patient_name}}،\n\nأظهرت نتيجة فحص الكشف المبكر عن سرطان الأمعاء (FIT) الأخير حاجة للمتابعة. هذا لا يعني بالضرورة وجود مشكلة، لكننا نود ترتيب فحص إضافي.\n\nيرجى تأكيد استلام هذه الرسالة حتى يتمكن منسق الرعاية من مناقشة الخطوات التالية معك.\n\nمنسق الرعاية: {{navigator_name}}\nالاتصال: {{navigator_phone}}\n\nهذه رسالة محاكاة لأغراض العرض فقط.",
+    "channels": {
+      "app": { "format": "full" },
+      "sms": {
+        "body": "مهم: نتيجة فحص الأمعاء تحتاج متابعة. يرجى تسجيل الدخول أو الاتصال بـ {{navigator_phone}}. (محاكاة)"
+      }
+    }
+  },
+
+  "breast_recall_notification": {
+    "review_status": "NEEDS_NATIVE_REVIEW",
+    "subject": "مهم: استدعاء فحص الثدي",
+    "body": "عزيزي/عزيزتي {{patient_name}}،\n\nبعد تصوير الثدي الأخير، نود دعوتك لإجراء تقييم إضافي. هذا جزء روتيني من الفحص ولا يعني وجود مشكلة.\n\nيرجى تأكيد استلام هذه الرسالة.\n\nمنسق الرعاية: {{navigator_name}}\nالاتصال: {{navigator_phone}}\n\nهذه رسالة محاكاة لأغراض العرض فقط.",
+    "channels": {
+      "app": { "format": "full" },
+      "sms": {
+        "body": "مهم: تم استدعاؤك بعد تصوير الثدي. يرجى تسجيل الدخول أو الاتصال بـ {{navigator_phone}}. (محاكاة)"
+      }
+    }
+  },
+
+  "hba1c_elevated_notification": {
+    "review_status": "NEEDS_NATIVE_REVIEW",
+    "subject": "نتيجة فحص الدم — إجراء مطلوب",
+    "body": "عزيزي/عزيزتي {{patient_name}}،\n\nأظهر فحص HbA1c الأخير مستوى {{hba1c_value}} {{hba1c_unit}}، وهو أعلى من المعدل الموصى به. نود مناقشة الخيارات معك.\n\nيرجى تأكيد استلام هذه الرسالة حتى نتمكن من ترتيب محادثة.\n\nمنسق الرعاية: {{navigator_name}}\nالاتصال: {{navigator_phone}}\n\nهذه رسالة محاكاة لأغراض العرض فقط.",
+    "channels": {
+      "app": { "format": "full" },
+      "sms": {
+        "body": "نتيجة HbA1c تحتاج متابعة. يرجى تسجيل الدخول أو الاتصال بـ {{navigator_phone}}. (محاكاة)"
+      }
+    }
+  },
+
+  "appointment_reminder": {
+    "review_status": "NEEDS_NATIVE_REVIEW",
+    "subject": "تذكير: موعد قادم",
+    "body": "عزيزي/عزيزتي {{patient_name}}،\n\nهذا تذكير بأن لديك موعدًا في {{appointment_date}} الساعة {{appointment_time}} في {{clinic_name}}.\n\nإذا كنت بحاجة لإعادة الجدولة، يرجى الاتصال بمنسق الرعاية: {{navigator_name}} على {{navigator_phone}}.\n\nهذه رسالة محاكاة لأغراض العرض فقط.",
+    "channels": {
+      "app": { "format": "full" },
+      "sms": {
+        "body": "تذكير: موعد في {{appointment_date}} الساعة {{appointment_time}}، {{clinic_name}}. لإعادة الجدولة اتصل بـ {{navigator_phone}}. (محاكاة)"
+      }
+    }
+  },
+
+  "escalation_alert": {
+    "review_status": "NEEDS_NATIVE_REVIEW",
+    "subject": "تصعيد حالة: {{patient_id}}",
+    "body": "تم تصعيد الحالة {{case_id}} للمريض {{patient_id}}.\n\nالسبب: {{escalation_reason}}\nالخطوة الحالية: {{current_step}}\nالمسار: {{pathway_name}}\nمستوى التصعيد: {{escalation_tier}}\n\nيرجى المراجعة واتخاذ الإجراء.\n\nهذه رسالة محاكاة لأغراض العرض فقط.",
+    "channels": {
+      "app": { "format": "full" },
+      "sms": {
+        "body": "تصعيد: الحالة {{case_id}} تحتاج اهتمام. المستوى {{escalation_tier}}. سجل الدخول. (محاكاة)"
+      }
+    }
+  },
+
+  "sla_breach_warning": {
+    "review_status": "NEEDS_NATIVE_REVIEW",
+    "subject": "تحذير تجاوز SLA: {{case_id}}",
+    "body": "الحالة {{case_id}} تقترب أو تجاوزت مهلة SLA.\n\nالخطوة: {{current_step}}\nالموعد النهائي: {{sla_deadline}}\nالوقت المتبقي: {{time_remaining}}\n\nيرجى اتخاذ إجراء فوري.\n\nهذه رسالة محاكاة لأغراض العرض فقط.",
+    "channels": {
+      "app": { "format": "full" },
+      "sms": {
+        "body": "تحذير SLA: الحالة {{case_id}} — الموعد النهائي {{sla_deadline}}. (محاكاة)"
+      }
+    }
+  },
+
+  "closure_confirmation": {
+    "review_status": "NEEDS_NATIVE_REVIEW",
+    "subject": "إغلاق حالة: {{case_id}}",
+    "body": "تم إغلاق الحالة {{case_id}} للمريض {{patient_name}}.\n\nنوع الإغلاق: {{closure_type}}\nأغلقت بواسطة: {{closed_by}}\nالتاريخ: {{closure_date}}\n\nهذه رسالة محاكاة لأغراض العرض فقط.",
+    "channels": {
+      "app": { "format": "full" },
+      "sms": {
+        "body": "الحالة {{case_id}} تم إغلاقها ({{closure_type}}). (محاكاة)"
+      }
+    }
+  }
+}
